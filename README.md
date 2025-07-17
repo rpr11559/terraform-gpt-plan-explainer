@@ -35,6 +35,9 @@ terraform show -json plan.out > plan.json
 
 Then run the explainer:
 ```bash
+# Ensure OPENAI_API_KEY is set in your environment
+export OPENAI_API_KEY=your-openai-api-key
+
 python src/cli.py --input examples/example-plan.json --output examples/output-summary.md
 ```
 
@@ -70,6 +73,8 @@ terraform-gpt-plan-explainer/
 - [x] Optional Mermaid diagram integration
 - [x] GitHub Action integration
 - [ ] Slack / GitHub Bot PR comment support
+- [ ] Gemini integration
+- [ ] Anthropic integration
 
 ## 🤝 Contributing
 
