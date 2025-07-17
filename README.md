@@ -1,6 +1,6 @@
 # Terraform GPT Plan Explainer
 
-![CI](https://github.com/rpr11559/terraform-gpt-plan-explainer/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/rpr11559/terraform-gpt-plan-explainer/actions/workflows/ci.yml/badge.svg?event=push)
 
 ## 🚀 What is this?
 
