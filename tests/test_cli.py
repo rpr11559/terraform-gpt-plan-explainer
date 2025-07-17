@@ -1,10 +1,10 @@
-
-
+from unittest.mock import patch
 import subprocess
 import os
 
 
-def test_cli(tmp_path):
+@patch("src.explain.explain_with_gpt", return_value="Mocked LLM Response")
+def test_cli(mock_llm, tmp_path):
     input_file = tmp_path / "plan.json"
     output_file = tmp_path / "summary.md"
     diagram_file = tmp_path / "diagram.mmd"
@@ -34,18 +34,17 @@ def test_cli(tmp_path):
         import json
         json.dump(plan_data, f)
 
-    # Run the CLI as a subprocess
     subprocess.run(
         ["python", "src/cli.py", "--input", str(input_file), "--output", str(output_file), "--diagram", str(diagram_file)],
         check=True,
     )
 
-    # Verify files were created and contain expected content
+    # Confirm files are created
     assert output_file.exists()
     with open(output_file, "r") as f:
         content = f.read()
         assert "| Action  | Resource Type | Resource Name |" in content
-        assert "Mocked LLM Response" in content or "LLM Explanation" in content  # Depending on test setup
+        assert "Mocked LLM Response" in content
 
     assert diagram_file.exists()
     with open(diagram_file, "r") as f:
