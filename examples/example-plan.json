@@ -1,0 +1,76 @@
+{
+    "resource_changes": [
+        {
+            "type": "aws_instance",
+            "name": "web_server",
+            "change": {
+                "actions": [
+                    "create"
+                ]
+            }
+        },
+        {
+            "type": "aws_s3_bucket",
+            "name": "logs_bucket",
+            "change": {
+                "actions": [
+                    "update"
+                ]
+            }
+        },
+        {
+            "type": "aws_security_group",
+            "name": "web_sg",
+            "change": {
+                "actions": [
+                    "create"
+                ]
+            }
+        },
+        {
+            "type": "aws_lb",
+            "name": "app_lb",
+            "change": {
+                "actions": [
+                    "create"
+                ]
+            }
+        },
+        {
+            "type": "aws_lb_target_group",
+            "name": "app_tg",
+            "change": {
+                "actions": [
+                    "create"
+                ]
+            }
+        },
+        {
+            "type": "aws_db_instance",
+            "name": "prod_db",
+            "change": {
+                "actions": [
+                    "delete"
+                ]
+            }
+        },
+        {
+            "type": "aws_iam_role",
+            "name": "ec2_role",
+            "change": {
+                "actions": [
+                    "update"
+                ]
+            }
+        },
+        {
+            "type": "aws_cloudwatch_log_group",
+            "name": "app_logs",
+            "change": {
+                "actions": [
+                    "create"
+                ]
+            }
+        }
+    ]
+}
