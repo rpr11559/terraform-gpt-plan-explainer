@@ -35,10 +35,10 @@ def test_cli(mock_llm, tmp_path):
         json.dump(plan_data, f)
 
     subprocess.run(
-        ["python", "src/cli.py", "--input", str(input_file), "--output", str(output_file), "--diagram", str(diagram_file)],
-        check=True,
+    ["python", "src/cli.py", "--input", str(input_file), "--output", str(output_file), "--diagram", str(diagram_file)],
+    check=True,
+    env={**os.environ, "OPENAI_API_KEY": "mock-key"},
     )
-
     # Confirm files are created
     assert output_file.exists()
     with open(output_file, "r") as f:
