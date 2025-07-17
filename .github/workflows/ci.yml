@@ -9,6 +9,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: dummy-key-for-tests
     steps:
     - uses: actions/checkout@v3
 
